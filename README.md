@@ -55,11 +55,10 @@ The Data Plane is deployed as an independent stack, responsible for processing c
 }
 `
 - GET /v1/modelDeployment/{:id} - Sample Response - Once model deployment is active, you will get the predict URL like in response. Sample Response - 
-
 `
 {
     "status": "active",
-    "url": "https://<data-plane-dns>/v2/models/md-26/infer",
+    "url": "https://DP_DNS/v2/models/md-26/infer",
     "request_res": {
         "cpu": "500m",
         "memory": "512Mi"
@@ -80,14 +79,13 @@ The Data Plane is deployed as an independent stack, responsible for processing c
         "memory": "1Gi"
     }
 }
-
 `
 
 ### Data Plane API (Inference API)
 
 
-- POST - https://<data-plane-dns>/v2/models/md-{:id}/infer - To sever real time REST predict endpoint 
-- GET -  POST - https://<data-plane-dns>/v2/models/md-{:id}/health/live - To see the health of the model 
+- POST - https://DP_DNS/v2/models/md-{:id}/infer - To sever real time REST predict endpoint 
+- GET -  POST - https://DP_DNS/v2/models/md-{:id}/health/live - To see the health of the model 
 
 ## Infrasture Setup
 
