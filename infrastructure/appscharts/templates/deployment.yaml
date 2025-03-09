@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector: 
+    matchLabels:
+    {{- toYaml .Values.lables | nindent 6 }}
+ 
+  template:
+    metadata:
+      labels:
+      {{- toYaml .Values.lables | nindent 8 }}
+    spec:
+      containers:
+        - name: cp
+          image: "{{ .Values.images.cp }}"
+          ports:
+            - containerPort: {{ .Values.ports.cp }}
+          volumeMounts:
+            - name: db
+              mountPath: /mnt 
+          env:
+            - name: REDIS_HOST
+              value: "localhost" 
+
+        - name: dp
+          image: "{{ .Values.images.dp }}"
+          volumeMounts:
+            - name: db
+              mountPath: /mnt
+          env:
+            - name: REDIS_HOST
+              value: "localhost" 
+
+        - name: redis
+          image: "{{ .Values.images.redis }}"
+          ports:
+            - containerPort: {{ .Values.ports.redis }}
+
+      volumes: 
+      {{- toYaml .Values.volumes | nindent 8 }}
+
