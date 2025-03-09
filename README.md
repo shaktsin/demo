@@ -87,7 +87,7 @@ The Data Plane is deployed as an independent stack, responsible for processing c
 - POST - https://DP_DNS/v2/models/md-{:id}/infer - To sever real time REST predict endpoint 
 - GET -  POST - https://DP_DNS/v2/models/md-{:id}/health/live - To see the health of the model 
 
-## Infrasture Setup
+## Infrastructure Setup
 
 ### Prerequisiste 
 You'd need the following utility installed to setup infra in AWS 
@@ -95,7 +95,7 @@ You'd need the following utility installed to setup infra in AWS
 - terraform 
 - helm
 
-### Control Plane Infrastrure 
+### Control Plane Infrastructure 
 
 - Git clone the repo 
 - Go to infrastrure folder 
@@ -113,7 +113,7 @@ Once it executes, it provisiones the followin infra
 - Three public and private subnets in 3 Avalablity Zones (AZ) for HA
 - Creates EKS cluster spanned across 3-AZ
 
-### Data Plane Infrastrure 
+### Data Plane Infrastructure 
 
 - Git clone the repo 
 - Go to infrastrure folder 
